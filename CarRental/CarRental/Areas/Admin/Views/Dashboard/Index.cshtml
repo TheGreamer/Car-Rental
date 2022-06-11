@@ -1,0 +1,131 @@
+﻿@using CarRental.Entity.Concrete
+@using CarRental.Areas.Admin.Models.ViewModels
+@model IotDashboardModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-section">
+    <div class="container-liquid">
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="stat-box colorone">
+                    <i class="author">&nbsp;</i>
+                    <h4><a href="~/Admin/IotCars/Index" style="color: #ffffff">IOT Araç Sayısı</a></h4>
+                    <h1>@Model.IotCarCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colortwo">
+                    <i class="chart">&nbsp;</i>
+                    <h4><a href="~/Admin/Drivers/Index" style="color: #ffffff">Şoför Sayısı</a></h4>
+                    <h1>@Model.DriverCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorthree">
+                    <i class="pages">&nbsp;</i>
+                    <h4>Aktif Sevkiyatlar</h4>
+                    <h1>@Model.ActiveShipmentCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorfour">
+                    <i class="users">&nbsp;</i>
+                    <h4>Tamamlanan Sevkiyatlar</h4>
+                    <h1>@Model.CompletedShipmentCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorfive">
+                    <i class="downloads">&nbsp;</i>
+                    <h4>Bekleyen Sevkiyatlar</h4>
+                    <h1>@Model.WaitingShipmentCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorsix">
+                    <i class="comments">&nbsp;</i>
+                    <h4 style="color: #000000">Hazırlanan Sevkiyatlar</h4>
+                    <h1>@Model.PreparingShipmentCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colornine">
+                    <i class="pages">&nbsp;</i>
+                    <h4>Sayfalar</h4>
+                    <h1>@Model.PageCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorseven">
+                    <i class="author">&nbsp;</i>
+                    <h4>Kiralık Arabalar</h4>
+                    <h1>@Model.CarCount</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box coloreight">
+                    <i class="chart">&nbsp;</i>
+                    <h4>-</h4>
+                    <h1>-</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colorten">
+                    <i class="users">&nbsp;</i>
+                    <h4>-</h4>
+                    <h1>-</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box coloreleven">
+                    <i class="downloads">&nbsp;</i>
+                    <h4>-</h4>
+                    <h1>-</h1>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="stat-box colortweleve">
+                    <i class="comments">&nbsp;</i>
+                    <h4>-</h4>
+                    <h1>-</h1>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="sec-box">
+                    <a class="closethis"></a>
+                    <header>
+                        <h2 class="heading"><a href="~/Admin/Shipments/Index">Sevkiyat Listesi</a></h2>
+                    </header>
+                    <div class="contents boxpadding">
+                        <a class="togglethis"></a>
+                        <div class="linkslist">
+                            <ul>
+                                @foreach (Shipment shipment in Model.Shipments)
+                                {
+                                    ShipmentState shipmentState = shipment.ShipmentState;
+                                    string shipmentStatus = string.Empty;
+
+                                    switch (shipmentState)
+                                    {
+                                        case ShipmentState.Active: shipmentStatus = "success-list"; break;
+                                        case ShipmentState.Completed: shipmentStatus = "success-list"; break;
+                                        case ShipmentState.Waiting: shipmentStatus = "error-list"; break;
+                                        case ShipmentState.Preparing: shipmentStatus = "error-list"; break;
+                                    }
+
+                                    <li class="@shipmentStatus">
+                                        <h5 class="captions"><b>@shipment.Product</b></h5>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

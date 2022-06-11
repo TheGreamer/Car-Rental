@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B39AFD81-AEBC-472E-A621-FD7E828D14A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarRental.Business</RootNamespace>
+    <AssemblyName>CarRental.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IBlogService.cs" />
+    <Compile Include="Abstract\ICoordinateService.cs" />
+    <Compile Include="Abstract\ICustomerReviewService.cs" />
+    <Compile Include="Abstract\IDeviceService.cs" />
+    <Compile Include="Abstract\IDriverService.cs" />
+    <Compile Include="Abstract\IFaqService.cs" />
+    <Compile Include="Abstract\IIotCarService.cs" />
+    <Compile Include="Abstract\IMessageService.cs" />
+    <Compile Include="Abstract\IPartnerService.cs" />
+    <Compile Include="Abstract\IPricingPlanService.cs" />
+    <Compile Include="Abstract\ICarImageService.cs" />
+    <Compile Include="Abstract\ICarService.cs" />
+    <Compile Include="Abstract\ICommentService.cs" />
+    <Compile Include="Abstract\IShipmentService.cs" />
+    <Compile Include="Abstract\ITeamMemberService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\BlogService.cs" />
+    <Compile Include="Concrete\CarImageService.cs" />
+    <Compile Include="Concrete\CarService.cs" />
+    <Compile Include="Concrete\CommentService.cs" />
+    <Compile Include="Concrete\CoordinateService.cs" />
+    <Compile Include="Concrete\CustomerReviewService.cs" />
+    <Compile Include="Concrete\DeviceService.cs" />
+    <Compile Include="Concrete\DriverService.cs" />
+    <Compile Include="Concrete\FaqService.cs" />
+    <Compile Include="Concrete\IotCarService.cs" />
+    <Compile Include="Concrete\MessageService.cs" />
+    <Compile Include="Concrete\PartnerService.cs" />
+    <Compile Include="Concrete\PricingPlanService.cs" />
+    <Compile Include="Concrete\ShipmentService.cs" />
+    <Compile Include="Concrete\TeamMemberService.cs" />
+    <Compile Include="Concrete\UserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental.Core\CarRental.Core.csproj">
+      <Project>{3E283E82-4983-43D7-BBAF-616CC4BEEC06}</Project>
+      <Name>CarRental.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.DataAccess\CarRental.DataAccess.csproj">
+      <Project>{AB626389-602E-497B-BF14-99C79F972A76}</Project>
+      <Name>CarRental.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Entity\CarRental.Entity.csproj">
+      <Project>{9C8021E4-1D12-484C-A14B-1D8C8C4A1587}</Project>
+      <Name>CarRental.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

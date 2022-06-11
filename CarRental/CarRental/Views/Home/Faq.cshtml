@@ -1,0 +1,58 @@
+﻿@using CarRental.Entity.Concrete
+@model IEnumerable<Faq>
+
+<main class="main">
+    <div class="container">
+        <div class="row row--grid">
+            <div class="col-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb__item"><a href="~/Home/Index">Anasayfa</a></li>
+                    <li class="breadcrumb__item breadcrumb__item--active"><a href="~/Home/Faq">Sıkça Sorulan Sorular (SSS)</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-xl-11">
+                <div class="main__title main__title--page">
+                    <h1>Yardım Merkezi</h1>
+                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). Still no luck? <a href="~/Home/Contact">Ask a question</a>.</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="accordion" id="accordion">
+                    <div class="row">
+                        @{
+                            int id = 0;
+                            string targetId;
+                        }
+                        @for (int i = 1; i <= 2; i++)
+                        {
+                            <div class="col-12 col-lg-6">
+                                @foreach (Faq faq in i == 1 ? Model.Take(Model.Count() / 2) : Model.Skip(Model.Count() / 2))
+                                {
+                                    id++;
+                                    targetId = $"collapse{id}";
+
+                                    <div class="accordion__card">
+                                        <button class="" type="button" data-toggle="collapse" data-target="#@targetId" aria-expanded="false" aria-controls="@targetId">
+                                            @faq.Question
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div id="@targetId" class="collapse" data-parent="#accordion">
+                                            <p>@Html.Raw(faq.Answer)</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

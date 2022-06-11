@@ -1,0 +1,113 @@
+﻿@using CarRental.Entity.Concrete
+@model CustomerReview
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-section">
+    <div class="container-liquid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="sec-box">
+                    <a class="closethis"></a>
+                    <header>
+                        <h2 class="heading">Ortak Düzenleme Formu</h2>
+                    </header>
+                    <div class="contents">
+                        <a class="togglethis"></a>
+                        <div class="table-box">
+                            <form name="editCustomerReviewForm" action="/Admin/CustomerReviews/Edit" method="post" enctype="multipart/form-data" onsubmit="return ValidateEditCustomerReviewForm()">
+                                <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-4">Açıklama</th>
+                                            <th class="col-md-8">Değer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-4">İsim</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Konum</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Resim</td>
+                                            <td class="col-md-8">
+                                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "text-box single-line", type = "file", accept = "image/*", onchange = "LoadFile(event)" } })
+                                                <br />
+                                                <img src="~/Content/img/avatars/@Model.Image" alt="@Model.Image" id="imageJs" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Değerlendirme</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.TextAreaFor(model => model.Review, new { @class = "form-control" })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">İşlemler</td>
+                                            <td class="col-md-8">
+                                                <div>
+                                                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.CreatedUserName, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.CreatedComputerName, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { type = "hidden" } })
+                                                    <input type="submit" value="Güncelle" class="btn btn-success style2" style="margin-right: 10px; width: 200px;" />
+                                                    @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-info style2", style = "width: 200px" })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ValidateEditCustomerReviewForm()
+    {
+        var name = document.editCustomerReviewForm[1].value;
+        var location = document.editCustomerReviewForm[2].value;
+        var image = document.editCustomerReviewForm[3].value;
+        var review = document.editCustomerReviewForm[4].value;
+
+        if (name == null || name == "" || location == null || location == "" || image == null || image == "" || review == null || review == "")
+        {
+            alertify.error("Bilgiler boş bırakılamaz.");
+            return false;
+        }
+    }
+</script>
+
+<script>
+    var LoadFile = function (event)
+    {
+        var image = document.getElementById('imageJs');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        image.onload = function ()
+        {
+            URL.revokeObjectURL(image.src);
+        }
+    };
+</script>

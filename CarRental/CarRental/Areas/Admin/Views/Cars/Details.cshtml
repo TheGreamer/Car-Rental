@@ -1,0 +1,201 @@
+﻿@using CarRental.Areas.Admin.Models.ViewModels
+@using CarRental.Entity.Concrete
+@model AdminCarWithImagesModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-section">
+    <div class="container-liquid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="sec-box">
+                    <a class="closethis"></a>
+                    <header>
+                        <h2 class="heading">@Model.Car.Name Aracının Detayları</h2>
+                    </header>
+                    <div class="contents">
+                        <a class="togglethis"></a>
+                        <div class="table-box">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-4">Açıklama</th>
+                                        <th class="col-md-8">Değer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-4">Araba Adı / Markası</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.Name, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Üretim Yılı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.Year, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Aylık Maksimum Ücret</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.MonthlyPayment, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Nakit Teşviği</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.CashIncentive, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Transfer Ücreti</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.TransferFee, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Tasarruf Ücreti</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.DispositionFee, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Kiralama Şirketi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.LeasingCompany, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Kira Bitiş Tarihi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.LeaseEndDate, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Koltuk Kapasitesi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.SeatingCapacity, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Benzin Türü</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.GasolineType, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Litre Başına Kaç Kilometre</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.KilometersPerLiter, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Vites Tipi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.GearType, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenme Tarihi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.CreatedDate, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenilen Bilgisayarın Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.CreatedComputerName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenen Bilgisayardaki Kullanıcı Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.CreatedUserName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Son Güncellenme Tarihi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.ModifiedDate, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Son Güncellenen Bilgisayarın Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.ModifiedComputerName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Son Güncellenen Bilgisayarın Kullanıcı Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.ModifiedUserName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Vites Tipi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Car.Status, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">İşlemler</td>
+                                        <td class="col-md-8">
+                                            <div>
+                                                @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-info style2", style = "width: 150px" })
+                                                @Html.ActionLink("Düzenle", "Edit", new { id = Model.Car.Id }, new { @class = "btn btn-success style2", style = "width: 150px" })
+                                                @Html.ActionLink("Durumu Değiştir", "ChangeStatus", new { id = Model.Car.Id }, new { @class = "btn btn-warning style2", style = "width: 150px" })
+                                                @Html.ActionLink("Sil", "Delete", new { id = Model.Car.Id }, new { @class = "btn btn-danger style2", style = "width: 150px" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

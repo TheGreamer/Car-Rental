@@ -1,0 +1,149 @@
+﻿@using CarRental.Entity.Concrete
+@model TeamMember
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-section">
+    <div class="container-liquid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="sec-box">
+                    <a class="closethis"></a>
+                    <header>
+                        <h2 class="heading">Takım Üyesi Düzenleme Formu</h2>
+                    </header>
+                    <div class="contents">
+                        <a class="togglethis"></a>
+                        <div class="table-box">
+                            <form name="editTeamMemberForm" action="/Admin/TeamMembers/Edit" method="post" enctype="multipart/form-data" onsubmit="return ValidateEditTeamMemberForm()">
+                                <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-4">Açıklama</th>
+                                            <th class="col-md-8">Değer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-4">İsim</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Pozisyon</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Resim</td>
+                                            <td class="col-md-8">
+                                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "text-box single-line", type = "file", accept = "image/*", onchange = "LoadFile(event)" } })
+                                                <br />
+                                                <img src="~/Content/img/team/@Model.Image" alt="@Model.Image" width="200" height="200" id="imageJs" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Facebook</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.FacebookLink, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Instagram</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.InstagramLink, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Skype</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.SkypeLink, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Telegram</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.TelegramLink, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">Linkedin</td>
+                                            <td class="col-md-8">
+                                                <div class="form-group has-success">
+                                                    @Html.EditorFor(model => model.LinkedinLink, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4">İşlemler</td>
+                                            <td class="col-md-8">
+                                                <div>
+                                                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.CreatedUserName, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.CreatedComputerName, new { htmlAttributes = new { type = "hidden" } })
+                                                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { type = "hidden" } })
+                                                    <input type="submit" value="Güncelle" class="btn btn-success style2" style="margin-right: 10px; width: 200px;" />
+                                                    @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-info style2", style = "width: 200px" })
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ValidateEditTeamMemberForm()
+    {
+        var name = document.editTeamMemberForm[1].value;
+        var position = document.editTeamMemberForm[2].value;
+        var image = document.editTeamMemberForm[3].value;
+        var facebook = document.editTeamMemberForm[4].value;
+        var instagram = document.editTeamMemberForm[5].value;
+        var skype = document.editTeamMemberForm[6].value;
+        var telegram = document.editTeamMemberForm[7].value;
+        var linkedin = document.editTeamMemberForm[8].value;
+
+        if (name == null || name == "" || position == null || position == "" || image == null || image == "" || facebook == null || facebook == "" || instagram == null || instagram == "" || skype == null || skype == "" || telegram == null || telegram == "" || linkedin == null || linkedin == "")
+        {
+            alertify.error("Bilgiler boş bırakılamaz.");
+            return false;
+        }
+    }
+</script>
+
+<script>
+    var LoadFile = function (event)
+    {
+        var image = document.getElementById('imageJs');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        image.onload = function ()
+        {
+            URL.revokeObjectURL(image.src);
+        }
+    };
+</script>

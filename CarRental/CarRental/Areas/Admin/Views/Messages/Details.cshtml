@@ -1,0 +1,102 @@
+﻿@using CarRental.Entity.Concrete
+@model Message
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-section">
+    <div class="container-liquid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="sec-box">
+                    <a class="closethis"></a>
+                    <header>
+                        <h2 class="heading">Mesaja Ait Detaylar</h2>
+                    </header>
+                    <div class="contents">
+                        <a class="togglethis"></a>
+                        <div class="table-box">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-4">Açıklama</th>
+                                        <th class="col-md-8">Değer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-4">İsim</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">E-Posta</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Konu</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Mesaj</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.TextAreaFor(model => model.Body, new { @class = "form-control", disabled = "disabled" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenme Tarihi</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenilen Bilgisayarın Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.CreatedComputerName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">Eklenen Bilgisayardaki Kullanıcı Adı</td>
+                                        <td class="col-md-8">
+                                            <div class="form-group has-success">
+                                                @Html.EditorFor(model => model.CreatedUserName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-4">İşlemler</td>
+                                        <td class="col-md-8">
+                                            <div>
+                                                @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-info style2", style = "width: 150px" })
+                                                @Html.ActionLink("Sil", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger style2", style = "width: 150px" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

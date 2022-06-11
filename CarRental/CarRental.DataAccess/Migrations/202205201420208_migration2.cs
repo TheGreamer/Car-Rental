@@ -1,0 +1,156 @@
+﻿namespace CarRental.DataAccess.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class migration2 : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Blogs", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Blogs", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Blogs", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Blogs", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Blogs", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Blogs", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Blogs", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.Comments", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Comments", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Comments", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Comments", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Comments", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Comments", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Comments", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.CarImages", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.CarImages", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.CarImages", "CreatedUserName", c => c.String());
+            AddColumn("dbo.CarImages", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.CarImages", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.CarImages", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.CarImages", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.Cars", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Cars", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Cars", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Cars", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Cars", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Cars", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Cars", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.CustomerReviews", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.CustomerReviews", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.CustomerReviews", "CreatedUserName", c => c.String());
+            AddColumn("dbo.CustomerReviews", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.CustomerReviews", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.CustomerReviews", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.CustomerReviews", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.Faqs", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Faqs", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Faqs", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Faqs", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Faqs", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Faqs", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Faqs", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.Messages", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Messages", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Messages", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Messages", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Messages", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Messages", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Messages", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.Partners", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.Partners", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.Partners", "CreatedUserName", c => c.String());
+            AddColumn("dbo.Partners", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.Partners", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.Partners", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.Partners", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.PricingPlans", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.PricingPlans", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.PricingPlans", "CreatedUserName", c => c.String());
+            AddColumn("dbo.PricingPlans", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.PricingPlans", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.PricingPlans", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.PricingPlans", "Status", c => c.Int(nullable: false));
+            AddColumn("dbo.TeamMembers", "CreatedDate", c => c.DateTime());
+            AddColumn("dbo.TeamMembers", "CreatedComputerName", c => c.String());
+            AddColumn("dbo.TeamMembers", "CreatedUserName", c => c.String());
+            AddColumn("dbo.TeamMembers", "ModifiedDate", c => c.DateTime());
+            AddColumn("dbo.TeamMembers", "ModifiedComputerName", c => c.String());
+            AddColumn("dbo.TeamMembers", "ModifiedUserName", c => c.String());
+            AddColumn("dbo.TeamMembers", "Status", c => c.Int(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.TeamMembers", "Status");
+            DropColumn("dbo.TeamMembers", "ModifiedUserName");
+            DropColumn("dbo.TeamMembers", "ModifiedComputerName");
+            DropColumn("dbo.TeamMembers", "ModifiedDate");
+            DropColumn("dbo.TeamMembers", "CreatedUserName");
+            DropColumn("dbo.TeamMembers", "CreatedComputerName");
+            DropColumn("dbo.TeamMembers", "CreatedDate");
+            DropColumn("dbo.PricingPlans", "Status");
+            DropColumn("dbo.PricingPlans", "ModifiedUserName");
+            DropColumn("dbo.PricingPlans", "ModifiedComputerName");
+            DropColumn("dbo.PricingPlans", "ModifiedDate");
+            DropColumn("dbo.PricingPlans", "CreatedUserName");
+            DropColumn("dbo.PricingPlans", "CreatedComputerName");
+            DropColumn("dbo.PricingPlans", "CreatedDate");
+            DropColumn("dbo.Partners", "Status");
+            DropColumn("dbo.Partners", "ModifiedUserName");
+            DropColumn("dbo.Partners", "ModifiedComputerName");
+            DropColumn("dbo.Partners", "ModifiedDate");
+            DropColumn("dbo.Partners", "CreatedUserName");
+            DropColumn("dbo.Partners", "CreatedComputerName");
+            DropColumn("dbo.Partners", "CreatedDate");
+            DropColumn("dbo.Messages", "Status");
+            DropColumn("dbo.Messages", "ModifiedUserName");
+            DropColumn("dbo.Messages", "ModifiedComputerName");
+            DropColumn("dbo.Messages", "ModifiedDate");
+            DropColumn("dbo.Messages", "CreatedUserName");
+            DropColumn("dbo.Messages", "CreatedComputerName");
+            DropColumn("dbo.Messages", "CreatedDate");
+            DropColumn("dbo.Faqs", "Status");
+            DropColumn("dbo.Faqs", "ModifiedUserName");
+            DropColumn("dbo.Faqs", "ModifiedComputerName");
+            DropColumn("dbo.Faqs", "ModifiedDate");
+            DropColumn("dbo.Faqs", "CreatedUserName");
+            DropColumn("dbo.Faqs", "CreatedComputerName");
+            DropColumn("dbo.Faqs", "CreatedDate");
+            DropColumn("dbo.CustomerReviews", "Status");
+            DropColumn("dbo.CustomerReviews", "ModifiedUserName");
+            DropColumn("dbo.CustomerReviews", "ModifiedComputerName");
+            DropColumn("dbo.CustomerReviews", "ModifiedDate");
+            DropColumn("dbo.CustomerReviews", "CreatedUserName");
+            DropColumn("dbo.CustomerReviews", "CreatedComputerName");
+            DropColumn("dbo.CustomerReviews", "CreatedDate");
+            DropColumn("dbo.Cars", "Status");
+            DropColumn("dbo.Cars", "ModifiedUserName");
+            DropColumn("dbo.Cars", "ModifiedComputerName");
+            DropColumn("dbo.Cars", "ModifiedDate");
+            DropColumn("dbo.Cars", "CreatedUserName");
+            DropColumn("dbo.Cars", "CreatedComputerName");
+            DropColumn("dbo.Cars", "CreatedDate");
+            DropColumn("dbo.CarImages", "Status");
+            DropColumn("dbo.CarImages", "ModifiedUserName");
+            DropColumn("dbo.CarImages", "ModifiedComputerName");
+            DropColumn("dbo.CarImages", "ModifiedDate");
+            DropColumn("dbo.CarImages", "CreatedUserName");
+            DropColumn("dbo.CarImages", "CreatedComputerName");
+            DropColumn("dbo.CarImages", "CreatedDate");
+            DropColumn("dbo.Comments", "Status");
+            DropColumn("dbo.Comments", "ModifiedUserName");
+            DropColumn("dbo.Comments", "ModifiedComputerName");
+            DropColumn("dbo.Comments", "ModifiedDate");
+            DropColumn("dbo.Comments", "CreatedUserName");
+            DropColumn("dbo.Comments", "CreatedComputerName");
+            DropColumn("dbo.Comments", "CreatedDate");
+            DropColumn("dbo.Blogs", "Status");
+            DropColumn("dbo.Blogs", "ModifiedUserName");
+            DropColumn("dbo.Blogs", "ModifiedComputerName");
+            DropColumn("dbo.Blogs", "ModifiedDate");
+            DropColumn("dbo.Blogs", "CreatedUserName");
+            DropColumn("dbo.Blogs", "CreatedComputerName");
+            DropColumn("dbo.Blogs", "CreatedDate");
+        }
+    }
+}
