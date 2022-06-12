@@ -86,7 +86,17 @@
                                                     <select class="form-control" name="Shipment.ShipmentState" id="Shipment_ShipmentState">
                                                         @foreach (ShipmentState state in Model.ShipmentStates)
                                                         {
-                                                            <option>@state</option>
+                                                            string shipmentState = string.Empty;
+
+                                                            switch (state)
+                                                            {
+                                                                case ShipmentState.Completed: shipmentState = "Tamamlanmış"; break;
+                                                                case ShipmentState.Active: shipmentState = "Aktif"; break;
+                                                                case ShipmentState.Preparing: shipmentState = "Hazırlanıyor"; break;
+                                                                case ShipmentState.Waiting: shipmentState = "Bekliyor"; break;
+                                                            }
+
+                                                            <option value="@state">@shipmentState</option>
                                                         }
                                                     </select>
                                                 </div>

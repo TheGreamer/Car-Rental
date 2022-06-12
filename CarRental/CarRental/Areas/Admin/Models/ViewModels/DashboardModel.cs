@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CarRental.Areas.Admin.Models.ViewModels
 {
-    public class IotDashboardModel
+    public class DashboardModel
     {
         public int PageCount { get; set; }
         public int CarCount { get; set; }
@@ -21,5 +21,7 @@ namespace CarRental.Areas.Admin.Models.ViewModels
         public int IotCarCount { get; set; }
         public int DriverCount { get; set; }
         public List<Shipment> Shipments { get; set; }
+        public List<IotCar> IotCars { get; set; }
+        public List<Driver> Drivers { get; set; }
     }
 }

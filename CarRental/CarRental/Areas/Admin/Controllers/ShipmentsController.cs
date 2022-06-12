@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using CarRental.Areas.Admin.Models.ViewModels;
 using CarRental.Business.Abstract;
+using CarRental.Core.Entity.Concrete;
 using CarRental.Core.MvcUI.Concrete;
 using CarRental.CustomAttributes;
 using CarRental.Entity.Concrete;
@@ -33,8 +34,8 @@ namespace CarRental.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create() => View(new ShipmentModel()
         {
-            IotCars = _iotCarService.GetAll(),
-            Drivers = _driverService.GetAll(),
+            IotCars = _iotCarService.GetAll(i => i.Status == Status.Active),
+            Drivers = _driverService.GetAll(d => d.Status == Status.Active),
         });
 
         [HttpPost]

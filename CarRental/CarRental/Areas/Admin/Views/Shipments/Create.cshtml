@@ -6,6 +6,64 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+<script>
+    function initMap()
+    {
+        var latlng = { lat: 39.925533, lng: 32.866287 };
+
+        var mapOptions =
+        {
+            center: latlng,
+            zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+
+        directionsDisplay.setMap(map);
+
+        function calcRoute()
+        {
+            var request =
+            {
+                origin: document.getElementById("Shipment_StartPoint").value,
+                destination: document.getElementById("Shipment_EndPoint").value,
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.IMPRERIAL
+            }
+
+            directionsService.route(request, (result, status) =>
+            {
+                if (status == google.maps.DirectionsStatus.OK)
+                {
+                    const output = document.querySelector('#output');
+                    output.innerHTML = "<div class='alert-info'>Başlangıç Noktası :" + request.origin + ".<br/>Bitiş Noktası :" + request.destination + ".<br/>Mesafe :" + result.routes[0].legs[0].distance.text + ".<br/>Tahmini Varış Süresi :" + result.routes[0].legs[0].duration.text + ".</div>";
+                    directionsDisplay.setDirections(result);
+                    var coordinates = google.maps.geometry.encoding.decodePath(result.routes[0].overview_polyline);
+                    console.log(String(coordinates));
+                }
+                else
+                {
+                    directionsDisplay.setDirections({ routes: [] });
+                    map.center(latlng);
+                }
+            });
+        }
+
+        document.getElementById("routeButton").addEventListener('click', calcRoute, true);
+
+        var options =
+        {
+            types: ['(cities)']
+        }
+
+        var startPointComplete = new google.maps.places.Autocomplete(document.getElementById("Shipment_StartPoint"), options);
+        var endPointComplete = new google.maps.places.Autocomplete(document.getElementById("Shipment_EndPoint"), options);
+    }
+</script>
+
 <div class="content-section">
     <div class="container-liquid">
         <div class="row">
@@ -70,6 +128,21 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td class="col-md-4">
+                                                <a class="btn btn-info" id="routeButton">Rota Oluştur</a>
+                                            </td>
+                                            <td class="col-md-8">
+                                                <div class="card">
+                                                    <div class="card-header border-0 align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1">Sevkiyat Rotası</h4>
+                                                    </div>
+                                                    <div class="card-body p-0 pb-2" id="map" style="height: 400px;">
+                                                    </div>
+                                                    <div class="card-footer p-0 mt-2" id="output"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td class="col-md-4">Taşınacak Ürün</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
@@ -84,7 +157,17 @@
                                                     <select class="form-control" name="Shipment.ShipmentState" id="Shipment_ShipmentState">
                                                         @foreach (ShipmentState state in Model.ShipmentStates)
                                                         {
-                                                            <option>@state</option>
+                                                            string shipmentState = string.Empty;
+
+                                                            switch (state)
+                                                            {
+                                                                case ShipmentState.Completed: shipmentState = "Tamamlanmış"; break;
+                                                                case ShipmentState.Active: shipmentState = "Aktif"; break;
+                                                                case ShipmentState.Preparing: shipmentState = "Hazırlanıyor"; break;
+                                                                case ShipmentState.Waiting: shipmentState = "Bekliyor"; break;
+                                                            }
+
+                                                            <option value="@state">@shipmentState</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -112,8 +195,7 @@
 </div>
 
 <script>
-    function ValidateAddShipmentForm()
-    {
+    function ValidateAddShipmentForm() {
         var iotCar = document.getElementById('IotCarId').value;
         var driver = document.getElementById('DriverId').value;
         var coordinate = document.addShipmentForm[2].value;
@@ -121,10 +203,13 @@
         var product = document.addShipmentForm[4].value;
         var shipmentState = document.getElementById('ShipmentState').value;
 
-        if (iotCar == null || iotCar == "" || driver == null || driver == "" || coordinate == null || coordinate == "" || shipmentNumber == null || shipmentNumber == "" || product == null || product == "" || shipmentState == null || shipmentState == "")
-        {
+        if (iotCar == null || iotCar == "" || driver == null || driver == "" || coordinate == null || coordinate == "" || shipmentNumber == null || shipmentNumber == "" || product == null || product == "" || shipmentState == null || shipmentState == "") {
             alertify.error("Bilgiler boş bırakılamaz.");
             return false;
         }
     }
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjKgs96YAzH6GszkhE-ZUHM9ryon2ZE3g&libraries=places&callback=initMap&v=weekly" async></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

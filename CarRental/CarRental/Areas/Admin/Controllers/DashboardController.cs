@@ -41,7 +41,7 @@ namespace CarRental.Areas.Admin.Controllers
             _shipmentService = shipmentService;
         }
 
-        public ActionResult Index() => View(new IotDashboardModel()
+        public ActionResult Index() => View(new DashboardModel()
         {
             PageCount = typeof(HomeController)
                         .Assembly.GetTypes()
@@ -63,29 +63,9 @@ namespace CarRental.Areas.Admin.Controllers
             CompletedShipmentCount = _shipmentService.GetCount(a => a.ShipmentState == ShipmentState.Completed),
             WaitingShipmentCount = _shipmentService.GetCount(a => a.ShipmentState == ShipmentState.Waiting),
             PreparingShipmentCount = _shipmentService.GetCount(a => a.ShipmentState == ShipmentState.Preparing),
-            Shipments = _shipmentService.GetAll()
+            Shipments = _shipmentService.GetAll(),
+            IotCars = _iotCarService.GetAll(),
+            Drivers = _driverService.GetAll(),
         });
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    Kariyer Hedefi:
-    Yazılım sektöründe uzman mertebesine ulaşmayı başarabilecek bir çalışma deneyimine sahip olup geçerliliği 
-    ve sürekliliği olan projeler ile birlikte kendimi geliştirmek.
-    Amaçladığım noktaya ulaştıktan sonra oyun geliştirme sektöründe Dünya'nın tamamında başarısı kabul edişmiş 
-    oyun projelerini hayata geçirmektir.
-*/

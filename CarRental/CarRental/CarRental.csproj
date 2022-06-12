@@ -154,7 +154,7 @@
     <Compile Include="Areas\Admin\Controllers\TeamMembersController.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminCarListModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminCarWithImagesModel.cs" />
-    <Compile Include="Areas\Admin\Models\ViewModels\IotDashboardModel.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\DashboardModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\ShipmentIndexModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\ShipmentModel.cs" />
     <Compile Include="Controllers\BlogController.cs" />
