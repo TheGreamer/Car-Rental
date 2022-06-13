@@ -93,7 +93,7 @@ namespace CarRental.Controllers
         [HttpGet]
         public ActionResult SignIn()
         {
-            if (string.IsNullOrEmpty(HttpContext.User.Identity.Name))
+            if (!string.IsNullOrEmpty(HttpContext.User.Identity.Name))
                 FormsAuthentication.SignOut();
 
             return View();
@@ -115,7 +115,13 @@ namespace CarRental.Controllers
         }
 
         [HttpGet]
-        public ActionResult SignUp() => View();
+        public ActionResult SignUp()
+        {
+            if (!string.IsNullOrEmpty(HttpContext.User.Identity.Name))
+                FormsAuthentication.SignOut();
+
+            return View();
+        }
 
         [HttpPost]
         public ActionResult SignUp(User user, HttpPostedFileBase userImage)
