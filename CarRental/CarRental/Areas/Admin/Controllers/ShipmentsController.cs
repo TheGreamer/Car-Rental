@@ -35,7 +35,7 @@ namespace CarRental.Areas.Admin.Controllers
         public ActionResult Create() => View(new ShipmentModel()
         {
             IotCars = _iotCarService.GetAll(i => i.Status == Status.Active),
-            Drivers = _driverService.GetAll(d => d.Status == Status.Active),
+            Drivers = _driverService.GetAll(d => d.Status == Status.Active)
         });
 
         [HttpPost]

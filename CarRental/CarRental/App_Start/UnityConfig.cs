@@ -27,9 +27,9 @@ namespace CarRental
             container.RegisterType<IUserService, UserService>();
             container.RegisterType<IIotCarService, IotCarService>();
             container.RegisterType<IDriverService, DriverService>();
-            container.RegisterType<ICoordinateService, CoordinateService>();
             container.RegisterType<IShipmentService, ShipmentService>();
             container.RegisterType<IDeviceService, DeviceService>();
+            container.RegisterType<IDeviceMovementService, DeviceMovementService>();
 
             container.RegisterType<ICarDal, CarDal>();
             container.RegisterType<ICarImageDal, CarImageDal>();
@@ -44,9 +44,9 @@ namespace CarRental
             container.RegisterType<IUserDal, UserDal>();
             container.RegisterType<IIotCarDal, IotCarDal>();
             container.RegisterType<IDriverDal, DriverDal>();
-            container.RegisterType<ICoordinateDal, CoordinateDal>();
             container.RegisterType<IShipmentDal, ShipmentDal>();
             container.RegisterType<IDeviceDal, DeviceDal>();
+            container.RegisterType<IDeviceMovementDal, DeviceMovementDal>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

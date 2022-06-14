@@ -5,7 +5,7 @@ using CarRental.Entity.Concrete;
 
 namespace CarRental.DataAccess.Concrete.DataAccessLayers
 {
-    public class CoordinateDal : EntityRepository<Coordinate, EfContext>, ICoordinateDal
+    public class DeviceMovementDal : EntityRepository<DeviceMovement, EfContext>, IDeviceMovementDal
     {
     }
 }

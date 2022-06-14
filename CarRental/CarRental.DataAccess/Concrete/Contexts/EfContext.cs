@@ -26,9 +26,9 @@ namespace CarRental.DataAccess.Concrete.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<IotCar> IotCars { get; set; }
         public DbSet<Driver> Drivers { get; set; }
-        public DbSet<Coordinate> Coordinates { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<Device> Devices { get; set; }
+        public DbSet<DeviceMovement> DeviceMovements { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,9 +45,9 @@ namespace CarRental.DataAccess.Concrete.Contexts
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new IotCarMap());
             modelBuilder.Configurations.Add(new DriverMap());
-            modelBuilder.Configurations.Add(new CoordinateMap());
             modelBuilder.Configurations.Add(new ShipmentMap());
             modelBuilder.Configurations.Add(new DeviceMap());
+            modelBuilder.Configurations.Add(new DeviceMovementMap());
 
             base.OnModelCreating(modelBuilder);
         }

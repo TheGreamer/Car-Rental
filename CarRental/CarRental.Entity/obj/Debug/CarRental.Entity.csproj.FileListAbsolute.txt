@@ -45,3 +45,4 @@ D:\Applications\C#\Class Works\CarRental\CarRental\CarRental.Entity\bin\Debug\Sy
 D:\Applications\C#\Class Works\CarRental\CarRental\CarRental.Entity\bin\Debug\System.Web.Razor.xml
 D:\Applications\C#\Class Works\CarRental\CarRental\CarRental.Entity\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Applications\C#\Class Works\CarRental\CarRental\CarRental.Entity\bin\Debug\CarRental.Entity.dll.config
+C:\Users\PC331\Desktop\The Greamer\CarRental\CarRental\CarRental.Entity\bin\Debug\CarRental.Entity.dll.config

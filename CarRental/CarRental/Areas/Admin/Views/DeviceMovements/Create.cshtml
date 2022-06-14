@@ -1,6 +1,6 @@
 ﻿@using CarRental.Entity.Concrete
 @using CarRental.Areas.Admin.Models.ViewModels
-@model IotCarsModel
+@model DeviceMovementModel
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -13,13 +13,12 @@
                 <div class="sec-box">
                     <a class="closethis"></a>
                     <header>
-                        <h2 class="heading">IOT Araç Düzenleme Formu</h2>
+                        <h2 class="heading">Cihaz Hareketi Ekleme Formu</h2>
                     </header>
                     <div class="contents">
                         <a class="togglethis"></a>
                         <div class="table-box">
-                            <form name="editIotCarForm" action="/Admin/IotCars/Edit" method="post" onsubmit="return ValidateEditIotCarForm()">
-                                <input type="hidden" name="Id" id="Id" value="@Model.IotCar.Id" />
+                            <form name="addDeviceMovementForm" action="/Admin/DeviceMovements/Create" method="post" onsubmit="return ValidateAddDeviceMovementForm()">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -29,57 +28,48 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="col-md-4">Ad - Marka</td>
+                                            <td class="col-md-4">Cihaz</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.IotCar.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <select class="form-control" name="DeviceId" id="DeviceId">
+                                                        @foreach (Device device in Model.Devices)
+                                                        {
+                                                            <option value="@device.Id">@device.Name</option>
+                                                        }
+                                                    </select>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-4">Model</td>
+                                            <td class="col-md-4">Enlem</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.IotCar.Model, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <input type="text" class="form-control" data-val="true" id="Latitude" name="Latitude">
+                                                    @*@Html.EditorFor(model => model.DeviceMovement.Latitude, new { htmlAttributes = new { @class = "form-control" } })*@
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-4">Plakası</td>
+                                            <td class="col-md-4">Boylam</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.IotCar.PlateNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.DeviceMovement.Longitude, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-4">Araç Tipi</td>
+                                            <td class="col-md-4">Hareket Durumu</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.IotCar.VehicleType, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.DeviceMovement.IsGoing, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cihaz</td>
-                                            <td>
-                                                <select class="form-control" name="DeviceId" id="DeviceId">
-                                                    @foreach (Device device in Model.Devices)
-                                                    {
-                                                        <option value="@device.Id">@device.Name</option>
-                                                    }
-                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="col-md-4">İşlemler</td>
                                             <td class="col-md-8">
                                                 <div>
-                                                    @Html.EditorFor(model => model.IotCar.CreatedDate, new { htmlAttributes = new { type = "hidden" } })
-                                                    @Html.EditorFor(model => model.IotCar.CreatedUserName, new { htmlAttributes = new { type = "hidden" } })
-                                                    @Html.EditorFor(model => model.IotCar.CreatedComputerName, new { htmlAttributes = new { type = "hidden" } })
-                                                    @Html.EditorFor(model => model.IotCar.Status, new { htmlAttributes = new { type = "hidden" } })
-                                                    <input type="submit" value="Güncelle" class="btn btn-success style2" style="margin-right: 10px; width: 200px;" />
+                                                    <input type="submit" value="Ekle" class="btn btn-success style2" style="margin-right: 10px; width: 200px;" />
                                                     @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-info style2", style = "width: 200px" })
                                                 </div>
                                             </td>
@@ -97,15 +87,14 @@
 </div>
 
 <script>
-    function ValidateEditIotCarForm()
+    function ValidateAddDeviceMovementForm()
     {
-        var brand = document.editIotCarForm[1].value;
-        var model = document.editIotCarForm[2].value;
-        var plateNumber = document.editIotCarForm[3].value;
-        var vehicleType = document.editIotCarForm[4].value;
-        var device = document.getElementById('DeviceId').value;
+        var deviceId = document.addDeviceMovementForm[0].value;
+        var latitude = document.addDeviceMovementForm[1].value;
+        var longitude = document.addDeviceMovementForm[2].value;
+        var currentDate = document.addDeviceMovementForm[3].value;
 
-        if (brand == null || brand == "" || model == null || model == "" || plateNumber == null || plateNumber == "" || vehicleType == null || vehicleType == "" || device == null || device == "")
+        if (deviceId == null || deviceId == "" || latitude == null || latitude == "" || longitude == null || longitude == "" || currentDate == null || currentDate == "")
         {
             alertify.error("Bilgiler boş bırakılamaz.");
             return false;

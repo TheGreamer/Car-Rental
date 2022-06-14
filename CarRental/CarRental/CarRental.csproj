@@ -143,6 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\CarsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerReviewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeviceMovementsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DevicesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DriversController.cs" />
     <Compile Include="Areas\Admin\Controllers\FaqsController.cs" />
@@ -155,6 +156,8 @@
     <Compile Include="Areas\Admin\Models\ViewModels\AdminCarListModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminCarWithImagesModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\DashboardModel.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\DeviceMovementModel.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\IotCarsModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\ShipmentIndexModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\ShipmentModel.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -176,7 +179,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\account.html" />
     <Content Include="Content\css\alertify.min.css" />
     <Content Include="Content\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\bootstrap-reboot.min.css" />
@@ -186,8 +188,6 @@
     <Content Include="Content\css\scrollbar.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\splide.min.css" />
-    <Content Include="Content\dashboard\404.html" />
-    <Content Include="Content\dashboard\alerts.html" />
     <Content Include="Content\dashboard\assets\css\bootstrap.css" />
     <Content Include="Content\dashboard\assets\css\style.css" />
     <Content Include="Content\dashboard\assets\fonts\glyphicons-halflings-regular.svg" />
@@ -202,6 +202,7 @@
     <Content Include="Content\dashboard\assets\images\avatar9.jpg" />
     <Content Include="Content\dashboard\assets\images\blue%402x.png" />
     <Content Include="Content\dashboard\assets\images\blue.png" />
+    <Content Include="Content\dashboard\assets\images\default-user.png" />
     <Content Include="Content\dashboard\assets\images\green%402x.png" />
     <Content Include="Content\dashboard\assets\images\green.png" />
     <Content Include="Content\dashboard\assets\images\img1.jpg" />
@@ -229,6 +230,7 @@
     <Content Include="Content\dashboard\assets\images\sort_desc_disabled.png" />
     <Content Include="Content\dashboard\assets\images\sprite-skin-flat.png" />
     <Content Include="Content\dashboard\assets\images\sprite.png" />
+    <Content Include="Content\dashboard\assets\images\the-greamer.png" />
     <Content Include="Content\dashboard\assets\images\zip.jpg" />
     <Content Include="Content\dashboard\assets\js\bootstrap-wysihtml5-0.0.2.js" />
     <Content Include="Content\dashboard\assets\js\bootstrap.min.js" />
@@ -259,48 +261,6 @@
     <Content Include="Content\dashboard\assets\js\raphael-2.1.0.min.js" />
     <Content Include="Content\dashboard\assets\js\selectnav.min.js" />
     <Content Include="Content\dashboard\assets\js\wysihtml5-0.3.0_rc2.min.js" />
-    <Content Include="Content\dashboard\basicform.html" />
-    <Content Include="Content\dashboard\basictables.html" />
-    <Content Include="Content\dashboard\blockquotes.html" />
-    <Content Include="Content\dashboard\breadcrumbs.html" />
-    <Content Include="Content\dashboard\buttons.html" />
-    <Content Include="Content\dashboard\calendar.html" />
-    <Content Include="Content\dashboard\charts.html" />
-    <Content Include="Content\dashboard\checkboxes.html" />
-    <Content Include="Content\dashboard\comments.html" />
-    <Content Include="Content\dashboard\compose.html" />
-    <Content Include="Content\dashboard\dashboard1.html" />
-    <Content Include="Content\dashboard\dashboard2.html" />
-    <Content Include="Content\dashboard\datatables.html" />
-    <Content Include="Content\dashboard\emaildetails.html" />
-    <Content Include="Content\dashboard\formgroup.html" />
-    <Content Include="Content\dashboard\gallery.html" />
-    <Content Include="Content\dashboard\icons.html" />
-    <Content Include="Content\dashboard\inbox.html" />
-    <Content Include="Content\dashboard\index.html" />
-    <Content Include="Content\dashboard\invoice.html" />
-    <Content Include="Content\dashboard\labels.html" />
-    <Content Include="Content\dashboard\layouts1.html" />
-    <Content Include="Content\dashboard\layouts2.html" />
-    <Content Include="Content\dashboard\layouts3.html" />
-    <Content Include="Content\dashboard\layouts4.html" />
-    <Content Include="Content\dashboard\lockscreen1.html" />
-    <Content Include="Content\dashboard\lockscreen2.html" />
-    <Content Include="Content\dashboard\login1.html" />
-    <Content Include="Content\dashboard\login2.html" />
-    <Content Include="Content\dashboard\maps.html" />
-    <Content Include="Content\dashboard\modals.html" />
-    <Content Include="Content\dashboard\navbar.html" />
-    <Content Include="Content\dashboard\pagination.html" />
-    <Content Include="Content\dashboard\progressbar.html" />
-    <Content Include="Content\dashboard\sliders.html" />
-    <Content Include="Content\dashboard\switches.html" />
-    <Content Include="Content\dashboard\tabs.html" />
-    <Content Include="Content\dashboard\tiles.html" />
-    <Content Include="Content\dashboard\tooltip.html" />
-    <Content Include="Content\dashboard\typography.html" />
-    <Content Include="Content\dashboard\wysiwygeditor.html" />
-    <Content Include="Content\forgot.html" />
     <Content Include="Content\icon\favicon-32x32.png" />
     <Content Include="Content\img\arrow.svg" />
     <Content Include="Content\img\arrow2.svg" />
@@ -465,6 +425,7 @@
     <Content Include="Areas\Admin\Views\CustomerReviews\Details.cshtml" />
     <Content Include="Areas\Admin\Views\CustomerReviews\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CustomerReviews\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DeviceMovements\Create.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Faq.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

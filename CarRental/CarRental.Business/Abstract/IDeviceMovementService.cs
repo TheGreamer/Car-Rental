@@ -4,7 +4,7 @@ using CarRental.Entity.Concrete;
 
 namespace CarRental.Business.Abstract
 {
-    public interface ICoordinateService : ICoreService<Coordinate, ICoordinateDal>
+    public interface IDeviceMovementService : ICoreService<DeviceMovement, IDeviceMovementDal>
     {
     }
 }

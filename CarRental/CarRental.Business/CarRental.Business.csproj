@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IBlogService.cs" />
-    <Compile Include="Abstract\ICoordinateService.cs" />
     <Compile Include="Abstract\ICustomerReviewService.cs" />
+    <Compile Include="Abstract\IDeviceMovementService.cs" />
     <Compile Include="Abstract\IDeviceService.cs" />
     <Compile Include="Abstract\IDriverService.cs" />
     <Compile Include="Abstract\IFaqService.cs" />
@@ -61,8 +61,8 @@
     <Compile Include="Concrete\CarImageService.cs" />
     <Compile Include="Concrete\CarService.cs" />
     <Compile Include="Concrete\CommentService.cs" />
-    <Compile Include="Concrete\CoordinateService.cs" />
     <Compile Include="Concrete\CustomerReviewService.cs" />
+    <Compile Include="Concrete\DeviceMovementService.cs" />
     <Compile Include="Concrete\DeviceService.cs" />
     <Compile Include="Concrete\DriverService.cs" />
     <Compile Include="Concrete\FaqService.cs" />

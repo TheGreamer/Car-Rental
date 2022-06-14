@@ -1,5 +1,6 @@
 ﻿@using CarRental.Entity.Concrete
-@model IotCar
+@using CarRental.Areas.Admin.Models.ViewModels
+@model IotCarsModel
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -30,7 +31,7 @@
                                             <td class="col-md-4">Ad - Marka</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.IotCar.Brand, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
                                             </td>
                                         </tr>
@@ -38,7 +39,7 @@
                                             <td class="col-md-4">Model</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.IotCar.Model, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
                                             </td>
                                         </tr>
@@ -46,7 +47,7 @@
                                             <td class="col-md-4">Plaka Numarası</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.PlateNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.IotCar.PlateNumber, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
                                             </td>
                                         </tr>
@@ -54,8 +55,19 @@
                                             <td class="col-md-4">Araç Tipi</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.VehicleType, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.IotCar.VehicleType, new { htmlAttributes = new { @class = "form-control" } })
                                                 </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cihaz</td>
+                                            <td>
+                                                <select class="form-control" name="DeviceId" id="DeviceId">
+                                                    @foreach (Device device in Model.Devices)
+                                                    {
+                                                        <option value="@device.Id">@device.Name</option>
+                                                    }
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>

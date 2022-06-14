@@ -54,9 +54,9 @@
     <Compile Include="Abstract\ICarDal.cs" />
     <Compile Include="Abstract\ICarImageDal.cs" />
     <Compile Include="Abstract\ICommentDal.cs" />
-    <Compile Include="Abstract\ICoordinateDal.cs" />
     <Compile Include="Abstract\ICustomerReviewDal.cs" />
     <Compile Include="Abstract\IDeviceDal.cs" />
+    <Compile Include="Abstract\IDeviceMovementDal.cs" />
     <Compile Include="Abstract\IFaqDal.cs" />
     <Compile Include="Abstract\IIotCarDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
@@ -71,9 +71,9 @@
     <Compile Include="Concrete\DataAccessLayers\CarDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\CarImageDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\CommentDal.cs" />
-    <Compile Include="Concrete\DataAccessLayers\CoordinateDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\CustomerReviewDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\DeviceDal.cs" />
+    <Compile Include="Concrete\DataAccessLayers\DeviceMovementDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\DriverDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\FaqDal.cs" />
     <Compile Include="Concrete\DataAccessLayers\IotCarDal.cs" />
@@ -87,9 +87,9 @@
     <Compile Include="Concrete\Mappings\CarImageMap.cs" />
     <Compile Include="Concrete\Mappings\CarMap.cs" />
     <Compile Include="Concrete\Mappings\CommentMap.cs" />
-    <Compile Include="Concrete\Mappings\CoordinateMap.cs" />
     <Compile Include="Concrete\Mappings\CustomerReviewMap.cs" />
     <Compile Include="Concrete\Mappings\DeviceMap.cs" />
+    <Compile Include="Concrete\Mappings\DeviceMovementMap.cs" />
     <Compile Include="Concrete\Mappings\DriverMap.cs" />
     <Compile Include="Concrete\Mappings\FaqMap.cs" />
     <Compile Include="Concrete\Mappings\IotCarMap.cs" />
@@ -99,53 +99,9 @@
     <Compile Include="Concrete\Mappings\ShipmentMap.cs" />
     <Compile Include="Concrete\Mappings\TeamMemberMap.cs" />
     <Compile Include="Concrete\Mappings\UserMap.cs" />
-    <Compile Include="Migrations\202205161926142_migration1.cs" />
-    <Compile Include="Migrations\202205161926142_migration1.designer.cs">
-      <DependentUpon>202205161926142_migration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205201420208_migration2.cs" />
-    <Compile Include="Migrations\202205201420208_migration2.designer.cs">
-      <DependentUpon>202205201420208_migration2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206010915383_migration3.cs" />
-    <Compile Include="Migrations\202206010915383_migration3.Designer.cs">
-      <DependentUpon>202206010915383_migration3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206020958007_migration4.cs" />
-    <Compile Include="Migrations\202206020958007_migration4.Designer.cs">
-      <DependentUpon>202206020958007_migration4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206030742394_migration5.cs" />
-    <Compile Include="Migrations\202206030742394_migration5.Designer.cs">
-      <DependentUpon>202206030742394_migration5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206030820030_migration6.cs" />
-    <Compile Include="Migrations\202206030820030_migration6.Designer.cs">
-      <DependentUpon>202206030820030_migration6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206030830434_migration7.cs" />
-    <Compile Include="Migrations\202206030830434_migration7.Designer.cs">
-      <DependentUpon>202206030830434_migration7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206031050183_migration8.cs" />
-    <Compile Include="Migrations\202206031050183_migration8.Designer.cs">
-      <DependentUpon>202206031050183_migration8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206101415090_migration9.cs" />
-    <Compile Include="Migrations\202206101415090_migration9.Designer.cs">
-      <DependentUpon>202206101415090_migration9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206101641493_migration10.cs" />
-    <Compile Include="Migrations\202206101641493_migration10.Designer.cs">
-      <DependentUpon>202206101641493_migration10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206101650517_migration11.cs" />
-    <Compile Include="Migrations\202206101650517_migration11.Designer.cs">
-      <DependentUpon>202206101650517_migration11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206102032310_migration12.cs" />
-    <Compile Include="Migrations\202206102032310_migration12.Designer.cs">
-      <DependentUpon>202206102032310_migration12.cs</DependentUpon>
+    <Compile Include="Migrations\202206141620135_Migration1.cs" />
+    <Compile Include="Migrations\202206141620135_Migration1.Designer.cs">
+      <DependentUpon>202206141620135_Migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,41 +121,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205161926142_migration1.resx">
-      <DependentUpon>202205161926142_migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205201420208_migration2.resx">
-      <DependentUpon>202205201420208_migration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206010915383_migration3.resx">
-      <DependentUpon>202206010915383_migration3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206020958007_migration4.resx">
-      <DependentUpon>202206020958007_migration4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206030742394_migration5.resx">
-      <DependentUpon>202206030742394_migration5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206030820030_migration6.resx">
-      <DependentUpon>202206030820030_migration6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206030830434_migration7.resx">
-      <DependentUpon>202206030830434_migration7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206031050183_migration8.resx">
-      <DependentUpon>202206031050183_migration8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206101415090_migration9.resx">
-      <DependentUpon>202206101415090_migration9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206101641493_migration10.resx">
-      <DependentUpon>202206101641493_migration10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206101650517_migration11.resx">
-      <DependentUpon>202206101650517_migration11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206102032310_migration12.resx">
-      <DependentUpon>202206102032310_migration12.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206141620135_Migration1.resx">
+      <DependentUpon>202206141620135_Migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

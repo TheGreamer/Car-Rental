@@ -45,8 +45,8 @@
     <Compile Include="Concrete\Blog.cs" />
     <Compile Include="Concrete\Car.cs" />
     <Compile Include="Concrete\CarImage.cs" />
+    <Compile Include="Concrete\DeviceMovement.cs" />
     <Compile Include="Concrete\Comment.cs" />
-    <Compile Include="Concrete\Coordinate.cs" />
     <Compile Include="Concrete\CustomerReview.cs" />
     <Compile Include="Concrete\Device.cs" />
     <Compile Include="Concrete\Driver.cs" />

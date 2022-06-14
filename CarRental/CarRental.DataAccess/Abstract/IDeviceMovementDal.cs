@@ -3,7 +3,7 @@ using CarRental.Entity.Concrete;
 
 namespace CarRental.DataAccess.Abstract
 {
-    public interface ICoordinateDal : IEntityRepository<Coordinate>
+    public interface IDeviceMovementDal : IEntityRepository<DeviceMovement>
     {
     }
 }

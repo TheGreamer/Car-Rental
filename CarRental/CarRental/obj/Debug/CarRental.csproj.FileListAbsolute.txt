@@ -201,3 +201,4 @@ D:\Applications\C#\Class Works\CarRental\CarRental\CarRental\bin\Unity.Container
 C:\Users\PC331\Desktop\The Greamer\CarRental\CarRental\CarRental\bin\EntityFramework.SqlServer.dll
 C:\Users\PC331\Desktop\The Greamer\CarRental\CarRental\CarRental\bin\EntityFramework.SqlServer.xml
 D:\Applications\C#\Class Works\CarRental\CarRental\CarRental\bin\CarRental.Entity.dll.config
+C:\Users\PC331\Desktop\The Greamer\CarRental\CarRental\CarRental\bin\CarRental.Entity.dll.config

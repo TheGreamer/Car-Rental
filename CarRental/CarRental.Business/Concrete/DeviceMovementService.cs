@@ -5,9 +5,9 @@ using CarRental.Entity.Concrete;
 
 namespace CarRental.Business.Concrete
 {
-    public class CoordinateService : CoreService<Coordinate, ICoordinateDal>, ICoordinateService
+    public class DeviceMovementService : CoreService<DeviceMovement, IDeviceMovementDal>, IDeviceMovementService
     {
-        public CoordinateService(ICoordinateDal coordinateDal) : base(coordinateDal)
+        public DeviceMovementService(IDeviceMovementDal deviceMovementDal) : base(deviceMovementDal)
         {
         }
     }

@@ -1,4 +1,20 @@
-﻿<!DOCTYPE HTML>
+﻿@using CarRental.Entity.Concrete
+@using CarRental.DataAccess.Concrete.DataAccessLayers
+@using CarRental.Business.Concrete
+@using System.Security.Principal
+
+@{
+    User admin = new User();
+    UserService _userService = new UserService(new UserDal());
+    IIdentity currentUser = HttpContext.Current.User.Identity;
+
+    if (currentUser.IsAuthenticated)
+    {
+        admin = _userService.Get(u => u.UserName == currentUser.Name);
+    }
+}
+
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>Yönetim Paneli</title>
@@ -50,8 +66,9 @@
                                 <ul>
                                     <li><a href="~/Admin/IotCars/Index">IOT Araç Takibi</a></li>
                                     <li><a href="~/Admin/Drivers/Index">Şoför Yönetimi</a></li>
-                                    <li><a href="~/Admin/Devices/Index">Cihaz Yönetimi</a></li>
                                     <li><a href="~/Admin/Shipments/Index">Sevkiyat Yönetimi</a></li>
+                                    <li><a href="~/Admin/Devices/Index">Cihaz Yönetimi</a></li>
+                                    <li><a href="~/Admin/DeviceMovements/Create">Cihaz Hareketi Ekleme</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -64,11 +81,11 @@
                 <header>
                     <div class="user">
                         <figure>
-                            <a href="#"><img src="~/Content/dashboard/assets/images/avatar1.jpg" alt="Adminise" /></a>
+                            <a href="#"><img src="~/Content/dashboard/assets/images/@admin.Image" alt="Adminise" /></a>
                         </figure>
                         <div class="welcome">
-                            <p>Welcome</p>
-                            <h5><a href="#">Stephen N. Arellano</a></h5>
+                            <p>Hoşgeldin</p>
+                            <h5>@admin.UserName</h5>
                         </div>
                     </div>
                     <div class="search-box">

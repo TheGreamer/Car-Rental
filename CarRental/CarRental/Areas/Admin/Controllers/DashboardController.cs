@@ -22,10 +22,9 @@ namespace CarRental.Areas.Admin.Controllers
         private readonly IMessageService _messageService;
         private readonly IIotCarService _iotCarService;
         private readonly IDriverService _driverService;
-        private readonly ICoordinateService _coordinateService;
         private readonly IShipmentService _shipmentService;
 
-        public DashboardController(ICarService carService, ICustomerReviewService customerReviewService, IBlogService blogService, IFaqService faqService, ITeamMemberService teamMemberService, IPricingPlanService pricingPlanService, IPartnerService partnerService, IMessageService messageService, IIotCarService iotCarService, IDriverService driverService, ICoordinateService coordinateService, IShipmentService shipmentService)
+        public DashboardController(ICarService carService, ICustomerReviewService customerReviewService, IBlogService blogService, IFaqService faqService, ITeamMemberService teamMemberService, IPricingPlanService pricingPlanService, IPartnerService partnerService, IMessageService messageService, IIotCarService iotCarService, IDriverService driverService, IShipmentService shipmentService)
         {
             _carService = carService;
             _customerReviewService = customerReviewService;
@@ -37,7 +36,6 @@ namespace CarRental.Areas.Admin.Controllers
             _messageService = messageService;
             _iotCarService = iotCarService;
             _driverService = driverService;
-            _coordinateService = coordinateService;
             _shipmentService = shipmentService;
         }
 

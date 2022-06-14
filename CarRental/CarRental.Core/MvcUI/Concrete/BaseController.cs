@@ -51,6 +51,7 @@ namespace CarRental.Core.MvcUI.Concrete
 
         [HttpGet]
         public virtual ActionResult ChangeStatus(int? id) => GetEntityById(id, true);
+
         [HttpGet]
         public virtual ActionResult Delete(int? id) => GetEntityById(id);
 
