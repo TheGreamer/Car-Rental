@@ -44,8 +44,7 @@
                                             <td class="col-md-4">Enlem</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    <input type="text" class="form-control" data-val="true" id="Latitude" name="Latitude">
-                                                    @*@Html.EditorFor(model => model.DeviceMovement.Latitude, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                    @Html.EditorFor(model => model.DeviceMovement.Latitude, new { htmlAttributes = new { @class = "form-control", type = "number" } })
                                                 </div>
                                             </td>
                                         </tr>
@@ -53,16 +52,14 @@
                                             <td class="col-md-4">Boylam</td>
                                             <td class="col-md-8">
                                                 <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.DeviceMovement.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.EditorFor(model => model.DeviceMovement.Longitude, new { htmlAttributes = new { @class = "form-control", type = "number" } })
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="col-md-4">Hareket Durumu</td>
                                             <td class="col-md-8">
-                                                <div class="form-group has-success">
-                                                    @Html.EditorFor(model => model.DeviceMovement.IsGoing, new { htmlAttributes = new { @class = "form-control" } })
-                                                </div>
+                                                @Html.EditorFor(model => model.DeviceMovement.IsGoing, new { htmlAttributes = new { @class = "form-control" } })
                                             </td>
                                         </tr>
                                         <tr>
