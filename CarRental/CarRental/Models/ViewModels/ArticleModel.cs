@@ -7,5 +7,6 @@ namespace CarRental.Models.ViewModels
     {
         public Blog Blog { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<User> Users { get; set; }
     }
 }

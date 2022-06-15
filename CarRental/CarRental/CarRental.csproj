@@ -202,7 +202,7 @@
     <Content Include="Content\dashboard\assets\images\avatar9.jpg" />
     <Content Include="Content\dashboard\assets\images\blue%402x.png" />
     <Content Include="Content\dashboard\assets\images\blue.png" />
-    <Content Include="Content\dashboard\assets\images\default-user.png" />
+    <Content Include="Content\img\avatars\default-user.png" />
     <Content Include="Content\dashboard\assets\images\green%402x.png" />
     <Content Include="Content\dashboard\assets\images\green.png" />
     <Content Include="Content\dashboard\assets\images\img1.jpg" />
@@ -230,7 +230,7 @@
     <Content Include="Content\dashboard\assets\images\sort_desc_disabled.png" />
     <Content Include="Content\dashboard\assets\images\sprite-skin-flat.png" />
     <Content Include="Content\dashboard\assets\images\sprite.png" />
-    <Content Include="Content\dashboard\assets\images\the-greamer.png" />
+    <Content Include="Content\img\avatars\the-greamer.png" />
     <Content Include="Content\dashboard\assets\images\zip.jpg" />
     <Content Include="Content\dashboard\assets\js\bootstrap-wysihtml5-0.0.2.js" />
     <Content Include="Content\dashboard\assets\js\bootstrap.min.js" />
