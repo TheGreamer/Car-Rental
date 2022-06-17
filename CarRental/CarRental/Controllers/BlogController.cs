@@ -1,13 +1,11 @@
 ﻿using CarRental.Business.Abstract;
 using CarRental.Core.Entity.Concrete;
 using CarRental.Core.MvcUI.Concrete;
-using CarRental.CustomAttributes;
 using CarRental.Entity.Concrete;
 using CarRental.Models.ViewModels;
 using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace CarRental.Controllers
 {
@@ -41,7 +39,8 @@ namespace CarRental.Controllers
             {
                 Blog = _blogService.GetById((int)id),
                 Comments = _commentService.GetAll(c => c.BlogId == id && c.Status == Status.Active).ToList(),
-                Users = _userService.GetAll()
+                Users = _userService.GetAll(),
+                UserService = _userService
             };
 
             if (model.Blog == null)
@@ -59,10 +58,24 @@ namespace CarRental.Controllers
             Comment commentToAdd = comment;
             commentToAdd.Date = DateTime.Now;
             commentToAdd.UserId = _userService.Get(u => u.UserName == userName).Id;
-            commentToAdd.BlogId = comment.BlogId;
 
             _commentService.Add(comment);
             return Redirect(Request.UrlReferrer.ToString());
+        }
+
+        [HttpGet]
+        public ActionResult DeleteComment(int? id)
+        {
+            if (id == null || !User.Identity.IsAuthenticated)
+                return RedirectToAction("Index");
+
+            if (_userService.Get(u => u.UserName == User.Identity.Name).Role == Role.Admin)
+                _commentService.Delete(_commentService.GetById((int)id));
+
+            if (Request.UrlReferrer != null)
+                return Redirect(Request.UrlReferrer.ToString());
+
+            return RedirectToAction("Index");
         }
     }
 }

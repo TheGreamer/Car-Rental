@@ -1,4 +1,5 @@
-﻿using CarRental.Entity.Concrete;
+﻿using CarRental.Business.Abstract;
+using CarRental.Entity.Concrete;
 using System.Collections.Generic;
 
 namespace CarRental.Models.ViewModels
@@ -8,5 +9,7 @@ namespace CarRental.Models.ViewModels
         public Blog Blog { get; set; }
         public List<Comment> Comments { get; set; }
         public List<User> Users { get; set; }
+
+        public IUserService UserService { get; set; }
     }
 }
